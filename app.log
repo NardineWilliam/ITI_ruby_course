@@ -1,0 +1,8 @@
+2024-05-13 03:40:11 +0300 -- info -- Processing Transactions User Ali transaction with value -20, User Ali transaction with value -30, User Ali transaction with value -50, User Ali transaction with value -100, User Ali transaction with value -100, User Menna transaction with value -100...
+2024-05-13 03:40:11 +0300 -- info -- User Ali transaction with value -20 succeeded
+2024-05-13 03:40:11 +0300 -- info -- User Ali transaction with value -30 succeeded
+2024-05-13 03:40:11 +0300 -- info -- User Ali transaction with value -50 succeeded
+2024-05-13 03:40:11 +0300 -- info -- User Ali transaction with value -100 succeeded
+2024-05-13 03:40:11 +0300 -- warning -- Ali has 0 balance
+2024-05-13 03:40:11 +0300 -- error -- User Ali transaction with value -100 failed with message Not enough balance
+2024-05-13 03:40:11 +0300 -- error -- User Menna transaction with value -100 failed with message Menna not exist in the bank!!
