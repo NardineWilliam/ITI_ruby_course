@@ -1,17 +1,31 @@
 <h1><%= @article.title %></h1>
 
+<p>By <%= @article.user.email %></p>
+
+<% if @article.image.attached? %>
+  <%= image_tag @article.image %>
+<% end %>
+
 <p><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+<% if user_signed_in? && @article.user == current_user %>
+  <ul>
+    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+    <li><%= link_to "Destroy", article_path(@article), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+  </ul>
+<% else %>
+  <%= button_to 'Report', report_article_path(@article), method: :post, data: { confirm: "Are you sure you want to report this article?" } %>
+<% end %>
 
 <h2>Comments</h2>
 <%= render @article.comments %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<% if user_signed_in? %>
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+<% else %>
+  <p>You need to <%= link_to "login", new_user_session_path %> to add a comment.</p>
+<% end %>
